@@ -1,0 +1,125 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	max-width: 100%;
+	overflow-x: hidden;
+    background-color: rgb(204, 15, 15); 
+}
+
+.wrap {
+	display: flex;
+	flex-direction: column;
+	max-width: 1084px;
+	height: 100vh;
+	margin: 0 auto;
+	padding: 50px 30px 0;
+}
+
+input {
+	display: none;
+}
+
+.slider {
+	display: flex;
+	width: 100%;
+	max-width: 1024px;
+	height: 512px;
+	overflow: hidden;
+	box-shadow: 0px 0px 10px 5px rgb(255, 255, 255);
+}
+
+.slides {
+	width: inherit;
+	height: inherit;
+	opacity: 0;
+	position: absolute;
+	z-index: 0;
+	transition: 1s;
+}
+
+.text{
+	opacity: 0;
+	position: absolute;
+	z-index: 0;
+	transition: 1s;
+}
+
+.img1 { background-image: url(img/Iron-man.jpg); background-repeat: no-repeat;}
+.img2 { background-image: url(img/Capitan-america.jpeg); background-repeat: no-repeat; }
+.img3 { background-image: url(img/Tor.jpeg); background-repeat: no-repeat;}
+.img4 { background-image: url(img/Halk.jpeg); background-repeat: no-repeat;}
+.img5 { background-image: url(img/Spider-men.jpeg); background-repeat: no-repeat;}
+
+.wrap2{
+	max-width: 1024px;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	padding-top: 30px;
+}
+
+label {
+	width: 40px;
+	height: 15px;
+	margin: 10px;
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	border-radius: 10px;
+}
+
+label:hover{
+	box-shadow: 0px 0px 10px 5px rgb(255, 255, 255);
+    transform: scale(1.2);
+	transition: all .5s ease;
+}
+
+label:after {
+	border: 2px solid rgb(255, 255, 255);
+	content: " ";
+	display: block;
+	width: 40px;
+	height: 15px;
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	border-radius: 10px;
+}
+
+
+p{
+    font-size: 35px;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+	color: rgb(205, 191, 190);
+}
+
+#slide1:checked ~ .wrap2 >.control label:nth-of-type(1),
+#slide2:checked ~ .wrap2 >.control label:nth-of-type(2),
+#slide3:checked ~ .wrap2 >.control label:nth-of-type(3),
+#slide4:checked ~ .wrap2 >.control label:nth-of-type(4), 
+#slide5:checked ~ .wrap2 >.control label:nth-of-type(5) {
+	background: rgb(255, 255, 255);
+}
+
+#slide1:checked ~ .slider > .img1,
+#slide2:checked ~ .slider > .img2,
+#slide3:checked ~ .slider > .img3, 
+#slide4:checked ~ .slider > .img4, 
+#slide5:checked ~ .slider > .img5 {
+	opacity: 1;
+	z-index: 1;
+}
+
+#slide1:checked ~ .wrap2 >.text-hero > .text1,
+#slide2:checked ~ .wrap2 >.text-hero > .text2,
+#slide3:checked ~ .wrap2 >.text-hero > .text3, 
+#slide4:checked ~ .wrap2 >.text-hero > .text4, 
+#slide5:checked ~ .wrap2 >.text-hero > .text5 {
+	opacity: 1;
+	z-index: 1;
+}
